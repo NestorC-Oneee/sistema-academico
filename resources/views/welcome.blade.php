@@ -27,9 +27,9 @@
 
             </h1>
 
-            <p class="mt-4 text-gray-600 text-red-600">
+            <p class="mt-4 text-gray-600 text-redgit s-600">
 
-                Proyecto desarrollado con Laravel y Tailwind CSS.
+                Proyecto desarrollado con Laravel y Tailwind CSS. Oneee Film
 
             </p>
 
