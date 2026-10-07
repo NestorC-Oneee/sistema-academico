@@ -1,0 +1,1457 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family:
+        "Arial Narrow",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #03070c;
+
+    color: white;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+========================================================= */
+
+.wolf-login {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 70% 35%,
+            rgba(31, 93, 145, 0.28),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(145, 25, 25, 0.22),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020509 0%,
+            #07111b 45%,
+            #03070c 100%
+        );
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.grid-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .12;
+
+    background-image:
+
+        linear-gradient(
+            rgba(90, 170, 220, .2) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(90, 170, 220, .2) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    transform: perspective(500px)
+               rotateX(55deg)
+               scale(1.5);
+
+    transform-origin: center bottom;
+}
+
+
+/* =========================================================
+   LUNA
+========================================================= */
+
+.moon {
+
+    position: absolute;
+
+    width: 390px;
+    height: 390px;
+
+    right: 9%;
+    top: 8%;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #eaf6ff,
+            #9caeba 40%,
+            #394550 70%,
+            #121820 100%
+        );
+
+    box-shadow:
+
+        0 0 35px rgba(160, 210, 245, .35),
+
+        0 0 120px rgba(50, 130, 190, .16);
+
+    opacity: .65;
+}
+
+
+/* Cráteres */
+
+.moon::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: rgba(30, 40, 50, .28);
+
+    top: 80px;
+    left: 80px;
+
+    box-shadow:
+
+        100px 40px 0 10px rgba(30, 40, 50, .18),
+
+        40px 170px 0 15px rgba(30, 40, 50, .2),
+
+        160px 190px 0 7px rgba(30, 40, 50, .25);
+
+}
+
+
+/* =========================================================
+   LUCES
+========================================================= */
+
+.light {
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: .16;
+
+    pointer-events: none;
+}
+
+.light-blue {
+
+    background: #0879c9;
+
+    top: 30%;
+    left: -10%;
+}
+
+.light-red {
+
+    background: #d51f27;
+
+    right: -10%;
+    bottom: -15%;
+}
+
+
+/* =========================================================
+   HUMO
+========================================================= */
+
+.smoke {
+
+    position: absolute;
+
+    width: 600px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(100, 120, 130, .08);
+
+    filter: blur(45px);
+
+    transform: rotate(-15deg);
+
+    animation: smokeMove 10s infinite alternate ease-in-out;
+}
+
+.smoke-one {
+
+    left: -100px;
+    bottom: 15%;
+}
+
+.smoke-two {
+
+    right: -150px;
+    bottom: 35%;
+
+    animation-delay: 3s;
+}
+
+@keyframes smokeMove {
+
+    from {
+        transform:
+            translateX(-30px)
+            rotate(-15deg);
+    }
+
+    to {
+        transform:
+            translateX(80px)
+            rotate(-10deg);
+    }
+
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
+
+.top-bar {
+
+    position: relative;
+
+    z-index: 5;
+
+    height: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    border-bottom: 1px solid rgba(120, 160, 190, .15);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 8, 13, .95),
+            rgba(3, 8, 13, .65),
+            rgba(3, 8, 13, .95)
+        );
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* Logo */
+
+.game-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.wolf-symbol {
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    font-weight: 900;
+
+    color: #d9e7ef;
+
+    border: 1px solid #6e8491;
+
+    background:
+        linear-gradient(
+            145deg,
+            #26343e,
+            #080d12
+        );
+
+    clip-path:
+        polygon(
+            10% 0,
+            90% 0,
+            100% 18%,
+            100% 82%,
+            90% 100%,
+            10% 100%,
+            0 82%,
+            0 18%
+        );
+
+    box-shadow:
+        inset 0 0 15px rgba(255,255,255,.08),
+        0 0 15px rgba(50,150,220,.2);
+}
+
+.game-logo h1 {
+
+    font-size: 27px;
+
+    letter-spacing: 5px;
+
+    font-weight: 900;
+
+    color: #e8f0f4;
+}
+
+.game-logo h1 span {
+
+    color: #40b8ff;
+}
+
+.game-logo small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #657885;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+/* Estado servidor */
+
+.server-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #77909e;
+}
+
+.status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #35dc78;
+
+    box-shadow:
+        0 0 10px #35dc78;
+
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    50% {
+        opacity: .35;
+    }
+
+}
+
+
+/* =========================================================
+   ÁREA LOGIN
+========================================================= */
+
+.login-area {
+
+    position: relative;
+
+    z-index: 3;
+
+    min-height: calc(100vh - 170px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 70px;
+
+    padding: 30px 8%;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+
+    max-width: 530px;
+
+    animation: slideLeft .8s ease;
+}
+
+@keyframes slideLeft {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+.classification {
+
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    margin-bottom: 20px;
+
+    border-left: 3px solid #d3232b;
+
+    background: rgba(211,35,43,.08);
+
+    color: #aebcc4;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+.intro h2 {
+
+    font-size: clamp(42px, 5vw, 72px);
+
+    line-height: .92;
+
+    letter-spacing: -2px;
+
+    font-weight: 900;
+
+    color: #e8f0f4;
+
+    text-shadow:
+        0 4px 25px rgba(0,0,0,.8);
+}
+
+.intro h2 strong {
+
+    display: block;
+
+    color: #3caef3;
+
+    text-shadow:
+        0 0 25px rgba(60,174,243,.35);
+}
+
+.intro p {
+
+    max-width: 430px;
+
+    margin-top: 24px;
+
+    color: #758692;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* Decoración */
+
+.line-decoration {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 30px 0;
+}
+
+.line-decoration span {
+
+    width: 65px;
+    height: 1px;
+
+    background: #263a47;
+}
+
+.line-decoration i {
+
+    width: 8px;
+    height: 8px;
+
+    background: #d3232b;
+
+    transform: rotate(45deg);
+
+    box-shadow:
+        0 0 12px rgba(211,35,43,.7);
+}
+
+
+/* Datos */
+
+.mission-data {
+
+    display: flex;
+
+    gap: 35px;
+}
+
+.mission-data div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.mission-data small {
+
+    color: #526570;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.mission-data strong {
+
+    font-size: 12px;
+
+    color: #aabac4;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   PANEL LOGIN
+========================================================= */
+
+.login-panel {
+
+    position: relative;
+
+    width: 430px;
+
+    padding: 35px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(26,37,46,.97),
+            rgba(7,12,17,.98)
+        );
+
+    border: 1px solid rgba(105,135,151,.3);
+
+    box-shadow:
+
+        0 30px 80px rgba(0,0,0,.6),
+
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    clip-path:
+        polygon(
+            0 18px,
+            18px 0,
+            calc(100% - 18px) 0,
+            100% 18px,
+            100% calc(100% - 18px),
+            calc(100% - 18px) 100%,
+            18px 100%,
+            0 calc(100% - 18px)
+        );
+
+    animation: loginAppear .8s ease;
+}
+
+@keyframes loginAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* Línea superior */
+
+.login-panel::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 12%;
+
+    width: 76%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #3caef3,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(60,174,243,.5);
+}
+
+
+/* Header */
+
+.panel-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.panel-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+    color: #d8e8ef;
+
+    border: 1px solid #526875;
+
+    background:
+        linear-gradient(
+            135deg,
+            #344854,
+            #10171c
+        );
+}
+
+.panel-header span {
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #4fa9d9;
+}
+
+.panel-header h3 {
+
+    margin-top: 4px;
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+
+    color: #e6eef2;
+}
+
+
+/* Línea */
+
+.panel-line {
+
+    width: 100%;
+    height: 1px;
+
+    margin: 25px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #334955,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.input-group {
+
+    margin-bottom: 20px;
+}
+
+.input-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #748893;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.input-box {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    background: #080e13;
+
+    border: 1px solid #273b47;
+
+    transition: .3s;
+}
+
+.input-box:focus-within {
+
+    border-color: #3caef3;
+
+    box-shadow:
+        0 0 18px rgba(60,174,243,.12);
+
+    transform: translateY(-1px);
+}
+
+.input-icon {
+
+    width: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #607681;
+
+    font-size: 15px;
+}
+
+.input-box input {
+
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #e5edf1;
+
+    font-size: 13px;
+}
+
+.input-box input::placeholder {
+
+    color: #40515b;
+}
+
+.password-toggle {
+
+    width: 50px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #536b77;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.password-toggle:hover {
+
+    color: #45b8ff;
+}
+
+
+/* =========================================================
+   OPCIONES
+========================================================= */
+
+.login-options {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 5px 0 20px;
+
+    font-size: 10px;
+}
+
+.remember {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #697c86;
+
+    cursor: pointer;
+}
+
+.remember input {
+
+    display: none;
+}
+
+.remember span {
+
+    width: 14px;
+    height: 14px;
+
+    border: 1px solid #3a505d;
+
+    background: #091016;
+}
+
+.remember input:checked + span {
+
+    background: #269edc;
+
+    box-shadow:
+        0 0 10px rgba(38,158,220,.5);
+}
+
+.login-options a {
+
+    color: #4aaee0;
+
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+.login-options a:hover {
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.login-message {
+
+    min-height: 0;
+
+    margin-bottom: 10px;
+
+    font-size: 10px;
+
+    letter-spacing: .5px;
+}
+
+.login-message.error {
+
+    padding: 9px;
+
+    color: #ff7777;
+
+    border-left: 2px solid #e3313b;
+
+    background: rgba(227,49,59,.08);
+}
+
+.login-message.success {
+
+    padding: 9px;
+
+    color: #62e49a;
+
+    border-left: 2px solid #38d77d;
+
+    background: rgba(56,215,125,.08);
+}
+
+
+/* =========================================================
+   BOTÓN LOGIN
+========================================================= */
+
+.login-button {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    border: 1px solid #5dc1f5;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-weight: 900;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087bb7,
+            #1554a3
+        );
+
+    box-shadow:
+        0 0 20px rgba(20,130,210,.2),
+
+        inset 0 1px 0 rgba(255,255,255,.2);
+
+    clip-path:
+        polygon(
+            0 0,
+            calc(100% - 12px) 0,
+            100% 12px,
+            100% 100%,
+            12px 100%,
+            0 calc(100% - 12px)
+        );
+
+    transition: .3s;
+}
+
+.login-button:hover {
+
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #1299dc,
+            #1d64c0
+        );
+
+    box-shadow:
+        0 0 30px rgba(30,160,240,.4);
+}
+
+.login-button:disabled {
+
+    cursor: wait;
+
+    opacity: .8;
+}
+
+.button-icon {
+
+    font-size: 18px;
+
+    transition: .3s;
+}
+
+.login-button:hover .button-icon {
+
+    transform: translateX(5px);
+}
+
+.success-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #168a54,
+            #0b633b
+        ) !important;
+
+    border-color: #48db91 !important;
+}
+
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.social-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 25px 0 15px;
+}
+
+.social-divider span {
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #243640;
+}
+
+.social-divider p {
+
+    color: #536772;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+.social-login {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+.social-button {
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid #263b47;
+
+    background: #0a1117;
+
+    color: #7d909a;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.social-button span {
+
+    font-weight: 900;
+
+    font-size: 14px;
+}
+
+.social-button:hover {
+
+    color: white;
+
+    border-color: #3e9dd0;
+
+    background: #101c25;
+
+    box-shadow:
+        0 0 12px rgba(40,150,210,.12);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   REGISTRO
+========================================================= */
+
+.register {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 22px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #1e3039;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+.register span {
+
+    color: #52636d;
+}
+
+.register a {
+
+    color: #4ebaf0;
+
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+.register a:hover {
+
+    color: white;
+}
+
+
+/* =========================================================
+   BARRA INFERIOR
+========================================================= */
+
+.bottom-bar {
+
+    position: absolute;
+
+    z-index: 10;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background: rgba(2,7,11,.92);
+
+    border-top: 1px solid rgba(90,120,140,.15);
+
+    backdrop-filter: blur(10px);
+}
+
+.copyright,
+.version {
+
+    color: #435660;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* Controles */
+
+.quick-controls {
+
+    display: flex;
+
+    height: 100%;
+}
+
+.quick-controls button {
+
+    min-width: 80px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    border: none;
+
+    border-left: 1px solid #1b2b34;
+
+    background: transparent;
+
+    color: #607681;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.quick-controls button:last-child {
+
+    border-right: 1px solid #1b2b34;
+}
+
+.quick-controls button span {
+
+    font-size: 18px;
+}
+
+.quick-controls button small {
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+}
+
+.quick-controls button:hover {
+
+    color: #4dbbfa;
+
+    background: rgba(40,150,210,.08);
+
+    box-shadow:
+        inset 0 -2px #35aeea;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .login-area {
+
+        justify-content: center;
+
+    }
+
+    .intro {
+
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+
+        overflow: auto;
+    }
+
+    .wolf-login {
+
+        min-height: 100vh;
+
+        height: auto;
+
+        overflow: hidden;
+    }
+
+    .top-bar {
+
+        height: 80px;
+
+        padding: 0 20px;
+    }
+
+    .server-status {
+
+        display: none;
+    }
+
+    .game-logo h1 {
+
+        font-size: 21px;
+
+        letter-spacing: 3px;
+    }
+
+    .game-logo small {
+
+        font-size: 6px;
+    }
+
+    .wolf-symbol {
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 21px;
+    }
+
+    .login-area {
+
+        min-height: calc(100vh - 150px);
+
+        padding: 30px 15px 100px;
+    }
+
+    .login-panel {
+
+        width: 100%;
+
+        max-width: 430px;
+
+        padding: 25px 20px;
+    }
+
+    .social-login {
+
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-bar {
+
+        height: 65px;
+
+        padding: 0;
+    }
+
+    .copyright,
+    .version {
+
+        display: none;
+    }
+
+    .quick-controls {
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .quick-controls button {
+
+        flex: 1;
+    }
+
+    .moon {
+
+        width: 250px;
+        height: 250px;
+
+        right: -100px;
+        top: 10%;
+    }
+
+}
